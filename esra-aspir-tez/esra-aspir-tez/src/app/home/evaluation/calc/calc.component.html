@@ -1,0 +1,47 @@
+<div>
+  <h2 style="text-align: center;" class="pb-5">Yönetici Puanına Göre Değerlendirme</h2>
+  <h4 class="pb-5">PERSONEL PUAN GİRİŞİNİ YAPINIZ</h4>
+</div>
+<p>
+  <ngb-alert type="danger"  *ngIf="show">
+    Lütfen tüm değerlerini giriniz
+  </ngb-alert>
+</p>
+<div class="spinner-border loading" *ngIf="loading" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div style="width: 800px; justify-content: center;display: flex;padding-left: 10px;" class="d-flex">
+  <div class="col-md-12">
+    <div class="row pb-5">
+      <div class="col-md-3">Ad Soyad</div>
+      <div class="col-md-6">
+        Yönetici Puanı
+      </div>
+    </div>
+    <div class="row" style="display: flex;padding: 10px;" *ngFor="let data of ccs;let i = index">
+      <div class="col-md-3" style="align-self: center;">
+        {{data.calisan.personelAdi}} {{data.calisan.personelSoyadi}}
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input [(ngModel)]="inputValues[i]" type="number" min="75" max="100" class="form-control" placeholder="">
+          <div [hidden]="!check(i)" style="color:#dc3545;margin-top: .25rem;">
+            Hatalı Değer girdiniz. Değer 75 ile 100 arasında olmalı.
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="display: flex;justify-content: space-between;margin-top: 40px;">
+
+  <button class="btn btn-primary background" style="width: 75px;" (click)="goBack()">Geri</button>
+
+
+  <button type="button" (click)="next()" style="width: 75px;" class="btn btn-primary background">Devam</button>
+
+
+</div>

@@ -1,0 +1,27 @@
+<div class="spinner-border loading" *ngIf="loading" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="col-md-12 row">
+  <div class="col-md-12"
+    style="display: flex;justify-content: center;margin-bottom: 20px;">
+    <div class="chart-container" style="width: 600px;border:none">
+      <canvas id="MyChart1" width="700" height="250"></canvas>
+
+    </div>
+    <div class="chart-container" style="width: 600px;border:none">
+      <canvas id="MyChart2" width="700" height="250"></canvas>
+
+    </div>
+  </div>
+<div>
+  <label for="">
+    {{text}}
+  </label>
+</div>
+</div>
+<div *ngIf="!loading" class="row" style="display: flex;justify-content: space-between;margin-top: 40px;">
+
+  <button class="btn btn-primary background" style="width: 75px;" (click)="goBack()">Geri</button>
+
+
+</div>
